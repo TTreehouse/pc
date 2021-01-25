@@ -8,7 +8,7 @@ async function init() {
     // Initialize body parser middleware
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
-    await db.MongoSetup();
+    db.MongoSetup();
     // Set a static folder
     app.use(express.static(path.join(__dirname, "public")));
     // Loads the file ./routes/api/members to handle requests at /api/members

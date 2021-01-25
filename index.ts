@@ -2,14 +2,13 @@ import express = require("express");
 import path = require("path");
 const app = express();
 import * as db from "./db";
-import { FindAverages } from "./dataHandler";
 
 async function init() {
 	// Initialize body parser middleware
 	app.use(express.json());
 	app.use(express.urlencoded({ extended: false }));
 
-	await db.MongoSetup();
+	db.MongoSetup();
 
 	// Set a static folder
 	app.use(express.static(path.join(__dirname, "public")));
